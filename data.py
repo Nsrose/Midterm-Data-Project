@@ -15,6 +15,34 @@ with open('rafadata.csv', 'rb') as csvfile:
 	for row in dataReader:
 		projectedmeans.append(row[0])
 
+gdps = []
+with open('gdp data.csv', 'rb') as csvfile: 
+    dataReader = csv.reader(csvfile, delimiter=',')
+    for row in dataReader:
+        for letter in row[1]:
+            if letter == ',':
+                row[1].remove(letter)
+        gdps.append((row[0], float(row[1])))
+gdps.sort(key=lambda x: x[0])
+
+obesitylevels = []
+with open('Obesity data.csv', 'rb') as csvfile:
+    dataReader = csv.reader(csvfile, delimiter=',')
+    for row in dataReader:
+        for letter in row[1]:
+            if letter == ',':
+                row[1].remove(letter)
+        obesitylevels.append((row[0], float(row[1])))
+
+educationlevels = []
+with open('education data.csv', 'rb') as csvfile:
+    dataReader = csv.reader(csvfile, delimiter=',')
+    for row in dataReader:
+        for letter in row[1]:
+            if letter == ',':
+                row[1].remove(letter)
+        educationlevels.append((row[0], float(row[1])))
+educationlevels.sort(key=lambda x: x[0])
 
 
 projectedmeans = map(float, projectedmeans)
@@ -29,7 +57,14 @@ while index < 50:
 	meanlist[index].append(projectedmeans[index])
 	index +=1
 
-
+    # Add relevant information #
+meanlist.sort(key=lambda x: x[0])
+index = 0
+while index<50:
+    meanlist[index].append(gdps[index][1])
+    meanlist[index].append(obesitylevels[index][1])
+    meanlist[index].append(educationlevels[index][1])
+    index +=1
 
 meanlist.sort(key=lambda x: x[1], reverse= True)
 
@@ -241,14 +276,24 @@ def correctstate(somelist):
 
 yourstates1 = filter(correctstate, meanlist)
 yourstates = []
-for i in yourstates1:
-	yourstates.append(i[1])
+index = 0
+while index<len(yourstates1):
+    yourstates.append(yourstates1[index])
+    index +=1
 
+def returnstates(listvalues, index):
+    print
+    print listvalues[index][1]
+    print
+    print("GDP per Capita: $" + str(listvalues[index][3]))
+    print("Obesity percentage: " + str(listvalues[index][4]) + "%")
+    print("Education ranking (out of 100): " + str(listvalues[index][5]))
 
 os.system('clear')
 print("Based on your level of physical activity, we suggest you move to one of these states:")
 print
-for i in yourstates:
-	print i
-
-
+returnstates(yourstates, 0)
+returnstates(yourstates, 1)
+returnstates(yourstates, 2)
+returnstates(yourstates, 3)
+returnstates(yourstates, 4)
