@@ -9,7 +9,6 @@ with open('data.csv', 'rb') as csvfile:
 		row.pop(0)
 		dataDict[state] = row
 
-<<<<<<< HEAD
 projectedmeans = []
 with open('rafadata.csv', 'rb') as csvfile: 
 	dataReader = csv.reader(csvfile, delimiter=',')
@@ -19,25 +18,12 @@ with open('rafadata.csv', 'rb') as csvfile:
 
 
 projectedmeans = map(float, projectedmeans)
-=======
-
-for i in dataDict:
-	dataDict[i] = map(float, dataDict[i])
-
-meanDict = {}
-
-for i in dataDict:
-	state = i
-	meanDict[state] = sum(dataDict[i])/len(dataDict[i])
-
->>>>>>> 930001024df1b0362942dd4d0065980535897ef5
 
 meanlist = []
 for i in dataDict:
 	i = [i]
 	meanlist.append(i)
 
-<<<<<<< HEAD
 index = 0
 while index < 50:
 	meanlist[index].append(projectedmeans[index])
@@ -60,65 +46,6 @@ while go:
 	rank -=1
 	if rank ==0:
 		go = False
-=======
-auxlist = []
-for i in dataDict:
-	auxlist.append(dataDict[i][0])
-
-i = 0
-while i<len(meanlist):
-	meanlist[i].append(auxlist[i])
-	i +=1
-
-meanlist.sort(key=lambda x: x[1], reverse= True)
-
-rankauxlist = [[10], [9], [8], [7], [6], [5], [4], [3], [2], [1]]
-
-# Not at all satisfied with this algorithm # 
-rank = 10
-index = 0
-while rank >0:
-	while index<=4:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
-	while index<=9:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
-	while index<=14:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
-	while index<=19:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
-	while index<=24:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
-	while index<=29:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
-	while index<=34:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
-	while index<=39:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
-	while index<=44:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
-	while index<=49:
-		meanlist[index].insert(0, rank)
-		index +=1
-	rank -=1
->>>>>>> 930001024df1b0362942dd4d0065980535897ef5
 
 				#Finding your laziness ranking: #
 
