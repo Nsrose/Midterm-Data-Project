@@ -2,7 +2,7 @@ import csv
 				# Finding States' Laziness Rankings: #
 dataDict = {}
 
-with open('data.csv', 'rb') as csvfile:
+with open('data.csv', 'rU') as csvfile:
 	dataReader = csv.reader(csvfile, delimiter=',')
 	for row in dataReader:
 		state = row[0]
