@@ -62,7 +62,7 @@ def meantotal(liststates):
         total += i[1]
     return total
 
-print "midwest total = " + str(meantotal(midwest))
-print "northeast total = " + str(meantotal(northeast))
-print "south total = " + str(meantotal(south))
-print "west total = " + str(meantotal(west))
+print "midwest total = " + str(meantotal(midwest)/len(midwest))
+print "northeast total = " + str(meantotal(northeast)/len(northeast))
+print "south total = " + str(meantotal(south)/len(south))
+print "west total = " + str(meantotal(west)/len(west))
