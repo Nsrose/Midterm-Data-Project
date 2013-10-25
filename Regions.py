@@ -62,7 +62,7 @@ def meantotal(liststates):
         total += i[1]
     return total
 
-print "midwest total = " + str(meantotal(midwest)/len(midwest))
-print "northeast total = " + str(meantotal(northeast)/len(northeast))
-print "south total = " + str(meantotal(south)/len(south))
-print "west total = " + str(meantotal(west)/len(west))
+print "midwest average laziness = " + str(meantotal(midwest)/len(midwest))
+print "northeast average laziness = " + str(meantotal(northeast)/len(northeast))
+print "south average laziness = " + str(meantotal(south)/len(south))
+print "west average laziness = " + str(meantotal(west)/len(west))
